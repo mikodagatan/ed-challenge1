@@ -1,0 +1,55 @@
+<div class="acme-script">
+  <div class='acme-content'>
+    Hello, let us tell you more about the PUMP! We are a group of highly professional stonk traders with a 1000% gain per day. 
+    With our rigorous training, you will be able to achieve the same gains too! Would you like to join us?
+  </div>
+  <button class="button" onclick="callParentFunction()">Ante Up</button>
+</div>
+
+<style type='text/css'>
+  .acme-script {
+    height: 75%;
+    width: 80%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+  }
+
+  .acme-content {
+    font-family: Ubuntu, Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+  .button {
+    font-size: 15px;
+    padding: 10px 20px;
+    margin: 15px;
+    border-radius: 20px;
+    background-color: rgba(130, 101, 246, 1);
+    color: white;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: rgba(130, 101, 246, 0.8);
+  }
+</style>
+
+<script>
+  function callParentFunction() {
+    console.log('calling parent function')
+    var url = (window.location != window.parent.location)
+            ? document.referrer
+            : document.location.href;
+
+    parent.postMessage({
+      'func': 'alertFunction',
+      'message': 'Get THAT FOOL!'
+    }, "*");
+  }
+</script>
